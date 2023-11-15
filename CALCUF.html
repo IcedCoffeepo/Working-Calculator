@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.calculator {
+  max-width: 300px;
+  margin: 0 auto;
+  background-color: #ce94df;
+  border: 0px solid #000000;
+  border-radius: 5px;
+  padding: 30px;
+}
+
+.row {
+  display: flex;
+}
+
+.button {
+  flex: 1;
+  padding: 18px;
+  text-align: center;
+  font-size: 20px;
+  border: 1px solid #000000;
+  border-radius: 5px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.operator {
+  background-color: #d254c3;
+  color: white;
+}
+
+.equal {
+  background-color: #f46feb;
+  color: white;
+}
+
+.number {
+  background-color: #000000;
+  color: white;
+}
+
+.decimal {
+  background-color: #65a0ad;
+}
+
+.clear {
+  background-color: #ec6fa1;
+  color: white;
+}
+
+.button:hover {
+  opacity: 0.7;
+}
+
+.display {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 10px;
+  text-align: right;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 24px;
+}
+</style>
+</head>
+<body>
+
+<div class="calculator">
+  <input type="text" class="display" id="display" readonly>
+  <div class="row">
+    <div class="button number" onclick="append('7')">7</div>
+    <div class="button number" onclick="append('8')">8</div>
+    <div class="button number" onclick="append('9')">9</div>
+    <div class="button operator" onclick="append('/')">÷</div>
+  </div>
+  <div class="row">
+    <div class="button number" onclick="append('4')">4</div>
+    <div class="button number" onclick="append('5')">5</div>
+    <div class="button number" onclick="append('6')">6</div>
+    <div class="button operator" onclick="append('*')">x</div>
+  </div>
+  <div class="row">
+    <div class="button number" onclick="append('1')">1</div>
+    <div class="button number" onclick="append('2')">2</div>
+    <div class="button number" onclick="append('3')">3</div>
+    <div class="button operator" onclick="append('-')">-</div>
+  </div>
+  <div class="row">
+    <div class="button number" onclick="append('0')">0</div>
+    <div class="button decimal" onclick="append('.')">.</div>
+    <div class="button equal" onclick="calculate()">=</div>
+    <div class="button operator" onclick="append('+')">+</div>
+  </div>
+  <div class="row">
+    <div class="button clear" onclick="clearDisplay()">CLEAR</div>
+  </div>
+</div>
+
+
+
+<script>
+function append(value) {
+  document.getElementById('display').value += value;
+}
+
+function calculate() {
+  var display = document.getElementById('display');
+  display.value = eval(display.value);
+}
+
+function clearDisplay() {
+  document.getElementById('display').value = '';
+}
+</script>
+
+
+
+</body>
+</html>
